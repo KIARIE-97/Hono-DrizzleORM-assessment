@@ -1,0 +1,33 @@
+
+GET http://localhost:3000/
+
+###
+GET http://localhost:8000/users
+
+###
+GET http://localhost:8000/users/4
+
+###
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+    "id": "5",
+  "name": "max",
+  "contact_phone": 267830,
+  "phone_verified": true,
+  "email": "lon@gmail.com",
+  "email_verified": true,
+  "confirmation_code": null,
+  "password": 234500
+  }
+
+###
+
+PUT http://localhost:8000/users/3
+Content-Type: application/json
+
+{
+   
+  "name": "karen",
+}
