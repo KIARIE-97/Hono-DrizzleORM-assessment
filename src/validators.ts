@@ -27,3 +27,9 @@ export const driverSchema = z.object({
   delivering: z.boolean(),
  
 })
+
+export const citySchema = z.object({
+  // "id": 4,
+  name: z.string(),
+  stateId: z.number()
+})

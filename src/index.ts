@@ -8,6 +8,7 @@ import { usersTable, commentTable, categoryTable } from "./drizzle/schema";
 import{ userRouter } from './users/user.router'
 import{ stateRouter } from './state/state.router'
 import{ driverRouter } from './drivers/driver.router'
+import{ cityRouter } from './cities/city.router'
 
 const app = new Hono()
 
@@ -29,6 +30,7 @@ app.get('/', (c) => {
 app.route( "/", userRouter)
 app.route( "/", stateRouter)
 app.route( "/", driverRouter)
+app.route( "/", cityRouter)
 
 console.log(`Server is running on port ${process.env.PORT}`)
 
