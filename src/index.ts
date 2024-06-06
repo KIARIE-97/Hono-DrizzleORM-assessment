@@ -9,6 +9,7 @@ import{ userRouter } from './users/user.router'
 import{ stateRouter } from './state/state.router'
 import{ driverRouter } from './drivers/driver.router'
 import{ cityRouter } from './cities/city.router'
+import{ addressRouter } from './address/address.router'
 
 const app = new Hono()
 
@@ -31,6 +32,7 @@ app.route( "/", userRouter)
 app.route( "/", stateRouter)
 app.route( "/", driverRouter)
 app.route( "/", cityRouter)
+app.route( "/", addressRouter)
 
 console.log(`Server is running on port ${process.env.PORT}`)
 

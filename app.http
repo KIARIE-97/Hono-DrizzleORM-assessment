@@ -14,6 +14,9 @@ GET http://localhost:8000/drivers
 GET http://localhost:8000/cities
 
 ###
+GET http://localhost:8000/address
+
+###
 GET http://localhost:8000/users/4
 
 ###
@@ -26,11 +29,14 @@ GET  http://localhost:8000/drivers/1
 GET http://localhost:8000/cities/3
 
 ###
+GET http://localhost:8000/address/4
+
+###
 POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-    "id": "5",
+    "id": "8",
   "name": "max",
   "contact_phone": 267830,
   "phone_verified": true,
@@ -75,12 +81,12 @@ POST http://localhost:8000/cities
   }
 
 ###
-PUT http://localhost:8000/users/3
+PUT http://localhost:8000/users/2
 Content-Type: application/json
 
 {
    
-  "name": "karen"
+  "name": "karn"
 }
 
 ###
@@ -109,7 +115,7 @@ PUT  http://localhost:8000/cities/3
  }
 
 ###
-DELETE http://localhost:8000/users/5
+DELETE http://localhost:8000/users/2
 
 ###
 DELETE http://localhost:8000/states/6
