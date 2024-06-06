@@ -9,7 +9,7 @@ export const userService = async (): Promise<TSUsers[] | null> => {
 //get one user
 export const getUserService = async (id: number): Promise<TIUsers | undefined> => {
     return await db.query.usersTable.findFirst({
-        where: eq(usersTable.id, id)
+        where: eq(usersTable.id, id) 
     })
 }
 

@@ -5,7 +5,13 @@ GET http://localhost:3000/
 GET http://localhost:8000/users
 
 ###
+GET http://localhost:8000/states
+
+###
 GET http://localhost:8000/users/4
+
+###
+GET http://localhost:8000/states/1
 
 ###
 POST http://localhost:8000/users
@@ -23,7 +29,18 @@ Content-Type: application/json
   }
 
 ###
+POST http://localhost:8000/states
+ Content-Type: application/json
 
+ {
+  "id": 6,
+  "name": "meru",
+  "code": 34011
+}
+
+
+
+###
 PUT http://localhost:8000/users/3
 Content-Type: application/json
 
@@ -33,4 +50,16 @@ Content-Type: application/json
 }
 
 ###
+PUT http://localhost:8000/states/2
+Content-Type: application/json
+  
+  {
+    
+    "name": "mombasa"
+  }
+
+###
 DELETE http://localhost:8000/users/5
+
+###
+DELETE http://localhost:8000/states/6
