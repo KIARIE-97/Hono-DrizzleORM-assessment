@@ -8,10 +8,16 @@ GET http://localhost:8000/users
 GET http://localhost:8000/states
 
 ###
+GET http://localhost:8000/drivers
+
+###
 GET http://localhost:8000/users/4
 
 ###
 GET http://localhost:8000/states/1
+
+###
+GET  http://localhost:8000/drivers/1
 
 ###
 POST http://localhost:8000/users
@@ -38,6 +44,21 @@ POST http://localhost:8000/states
   "code": 34011
 }
 
+###
+POST http://localhost:8000/drivers
+ Content-Type: application/json
+
+ {
+ "id": 4,
+  "car_make": "isuzu",
+  "car_model": "probox",
+  "car_year": 2023,
+  "userId": 2,
+  "online": true,
+  "delivering": true
+ 
+}
+
 
 
 ###
@@ -59,7 +80,18 @@ Content-Type: application/json
   }
 
 ###
+PUT http://localhost:8000/drivers/4
+Content-Type: application/json
+
+{ 
+  "car_model": "audi"
+}
+
+###
 DELETE http://localhost:8000/users/5
 
 ###
 DELETE http://localhost:8000/states/6
+
+###
+DELETE http://localhost:8000/drivers/4

@@ -51,8 +51,7 @@ export const categoryTable = pgTable('category', {
     userId: integer("user_id").notNull().references(() => usersTable.id, { onDelete: "cascade" }),
     online: boolean("online"),
     delivering: boolean("delivering"),
-    created_at: date("created_at"),
-    updated_at: date("updated_at"),
+    
   });
   
   // Define the menu_item table

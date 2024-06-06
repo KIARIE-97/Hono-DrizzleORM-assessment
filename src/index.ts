@@ -1,10 +1,13 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import "dotenv/config"
-import{ userRouter } from './users/user.router'
-import{ stateRouter } from './state/state.router'
 import db from "./drizzle/db";
 import { usersTable, commentTable, categoryTable } from "./drizzle/schema";
+
+
+import{ userRouter } from './users/user.router'
+import{ stateRouter } from './state/state.router'
+import{ driverRouter } from './drivers/driver.router'
 
 const app = new Hono()
 
@@ -25,6 +28,7 @@ app.get('/', (c) => {
 //custom route
 app.route( "/", userRouter)
 app.route( "/", stateRouter)
+app.route( "/", driverRouter)
 
 console.log(`Server is running on port ${process.env.PORT}`)
 

@@ -16,3 +16,14 @@ export const stateSchema = z.object({
   name: z.string(),
   code: z.number(),
 })
+
+export const driverSchema = z.object({
+  
+  car_make: z.string(),
+  car_model:z.string(),
+  car_year: z.number(),
+  userId: z.number(),
+  online: z.boolean(),
+  delivering: z.boolean(),
+ 
+})
