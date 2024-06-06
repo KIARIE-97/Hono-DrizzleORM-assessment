@@ -29,5 +29,8 @@ Content-Type: application/json
 
 {
    
-  "name": "karen",
+  "name": "karen"
 }
+
+###
+DELETE http://localhost:8000/users/5

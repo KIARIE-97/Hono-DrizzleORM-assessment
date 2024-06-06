@@ -1,7 +1,7 @@
 import {  Hono } from "hono";
 import { type Context } from "hono";
 import {zValidator} from "@hono/zod-validator";
-import { listUsers, getSingleUser, createUser, updateUser } from "./user.controller";
+import { listUsers, getSingleUser, createUser, updateUser, deleteUser } from "./user.controller";
 import { get } from "http";
 import { userSchema } from "../validators";
 
@@ -33,6 +33,7 @@ userRouter.post("/users", zValidator('json', userSchema, (results, c) => {
     }
 }) ,createUser)
 userRouter.put("/users/:id", updateUser)
+userRouter.delete("/users/:id", deleteUser)
 
     //get single user
     // userRouter.get("/users/:id", (c: Context) => {
