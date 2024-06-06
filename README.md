@@ -1,8 +1,5 @@
 ```
-npm install
-npm run dev
-```
 
-```
-open http://localhost:3000
+MY first API
+hono plus drizzle API
 ```
