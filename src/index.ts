@@ -10,6 +10,15 @@ import{ stateRouter } from './state/state.router'
 import{ driverRouter } from './drivers/driver.router'
 import{ cityRouter } from './cities/city.router'
 import{ addressRouter } from './address/address.router'
+import{ restaurantsRouter } from './restaurants/restaurant.router'
+import{ restaurantownersRouter } from './restaurant owners/resowner.router'
+import{ menuItemRouter } from './menuitems/menuitem.router'
+import{ categoryRouter } from './categories/category.router'
+import{ orderMenuItemRouter } from './order menuitems/orderMI.router'
+import{ commentRouter } from './comments/comment.router'
+import{ statusCatalogRouter } from './status catalogues/statusC.router'
+import{ ordersRouter } from './orders/order.router'
+import{ orderStatusRouter } from './orderStatus/orderS.router'
 
 const app = new Hono()
 
@@ -33,6 +42,16 @@ app.route( "/", stateRouter)
 app.route( "/", driverRouter)
 app.route( "/", cityRouter)
 app.route( "/", addressRouter)
+app.route( "/", restaurantsRouter)
+app.route( "/", restaurantownersRouter)
+app.route( "/", menuItemRouter)
+app.route( "/", categoryRouter)
+app.route( "/", orderMenuItemRouter)
+app.route( "/", commentRouter)
+app.route( "/", statusCatalogRouter)
+app.route( "/", ordersRouter)
+app.route( "/", orderStatusRouter)
+
 
 console.log(`Server is running on port ${process.env.PORT}`)
 

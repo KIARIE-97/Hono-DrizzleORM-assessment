@@ -17,6 +17,9 @@ GET http://localhost:8000/cities
 GET http://localhost:8000/address
 
 ###
+GET http://localhost:8000/restaurants
+
+###
 GET http://localhost:8000/users/4
 
 ###
@@ -30,6 +33,10 @@ GET http://localhost:8000/cities/3
 
 ###
 GET http://localhost:8000/address/4
+
+###
+
+GET http://localhost:8000/restaurants/4
 
 ###
 POST http://localhost:8000/users
@@ -81,7 +88,22 @@ POST http://localhost:8000/cities
   }
 
 ###
-PUT http://localhost:8000/users/2
+POST http://localhost:8000/restaurants
+ Content-Type: application/json
+
+ {
+    "id": 7,
+    "name": "hotel-transolvinyia",
+    "street_address": "1023",
+    "zip_code": "32-00",
+    "cityId": 3,
+    "created_at": null,
+    "updated_at": null
+  }
+
+
+###
+PUT http://localhost:8000/users/3
 Content-Type: application/json
 
 {
@@ -115,6 +137,16 @@ PUT  http://localhost:8000/cities/3
  }
 
 ###
+PUT  http://localhost:8000/restaurants/6
+Content-Type: application/json
+
+ {
+   "name": "krusty krab"
+ }
+
+
+
+###
 DELETE http://localhost:8000/users/2
 
 ###
@@ -125,3 +157,6 @@ DELETE http://localhost:8000/drivers/4
 
 ###
 DELETE http://localhost:8000/cities/5
+
+###
+DELETE http://localhost:8000/restaurants/7
