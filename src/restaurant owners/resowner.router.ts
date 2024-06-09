@@ -1,7 +1,7 @@
 import {  Hono } from "hono";
 import { type Context } from "hono";
 import {zValidator} from "@hono/zod-validator";
-import { listRestaurant, getSingleRestaurant, createRestaurant, updateRestaurant, deleteRestaurant } from "./city.controller";
+import { listRestaurant, getSingleRestaurant, createRestaurant, updateRestaurant, deleteRestaurant } from "./resowner.controller";
 import { get } from "http";
 // import { restaurantownersRouterSchema } from "../validators";
 

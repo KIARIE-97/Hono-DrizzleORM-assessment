@@ -1,7 +1,7 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import "dotenv/config"
-import db from "./drizzle/db";
+// import db from "./drizzle/db";
 import { usersTable, commentTable, categoryTable } from "./drizzle/schema";
 
 
@@ -19,6 +19,7 @@ import{ commentRouter } from './comments/comment.router'
 import{ statusCatalogRouter } from './status catalogues/statusC.router'
 import{ ordersRouter } from './orders/order.router'
 import{ orderStatusRouter } from './orderStatus/orderS.router'
+import{ userRelationRouter } from './userRelations/userrelation.router'
 
 const app = new Hono()
 
@@ -26,6 +27,8 @@ const app = new Hono()
 app.get('/', (c) => {
     return c.text('Hello Hono!')
   })
+
+  export default app;
   
   // app.get('/me', (c) => {
   //   return c.text('TECHLADS😊❤️')
@@ -51,6 +54,7 @@ app.route( "/", commentRouter)
 app.route( "/", statusCatalogRouter)
 app.route( "/", ordersRouter)
 app.route( "/", orderStatusRouter)
+app.route( "/", userRelationRouter)
 
 
 console.log(`Server is running on port ${process.env.PORT}`)

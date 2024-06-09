@@ -14,4 +14,4 @@ stateRouter.post("/states", zValidator('json', stateSchema, (results, c) => {
     }
 }) ,createState);
 stateRouter.put("/states/:id", updateState)
-stateRouter.delete("/states/:id", deleteState)
+stateRouter.delete("/states/:id", deleteState) 

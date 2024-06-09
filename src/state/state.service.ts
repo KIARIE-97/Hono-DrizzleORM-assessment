@@ -19,7 +19,7 @@ export const createStateService = async (user: TIState): Promise<TIState> => {
     await db.insert(stateTable).values(user)
     return user;
 
-}
+} 
 
 //update state
 export const updateStateService = async (id: number, user: TIState): Promise<TIState> => {

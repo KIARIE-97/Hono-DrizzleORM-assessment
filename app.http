@@ -5,6 +5,9 @@ GET http://localhost:3000/
 GET http://localhost:8000/users
 
 ###
+GET http://localhost:8000/userrelations
+
+###
 GET http://localhost:8000/states
 
 ###

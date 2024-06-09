@@ -52,7 +52,7 @@ export const createState = async (c: Context) => {
     //get the data and update
     const res = await updateStateService(id, user);
     //return the updated user
-    if (!res ) 
+    if (!res )  
         return c.text("user not updated!👽", 404); 
     return c.json({msg: res}, 201);
 

@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.statusCatalogRouter = void 0;
+const hono_1 = require("hono");
+const statusC_controller_1 = require("./statusC.controller");
+// import { restaurantsSchema } from "../validators";
+exports.statusCatalogRouter = new hono_1.Hono();
+exports.statusCatalogRouter.get("/statusCatalog", statusC_controller_1.liststatusCatalog);
+exports.statusCatalogRouter.get("/statusCatalog/:id", statusC_controller_1.getSinglestatusCatalog);
+exports.statusCatalogRouter.post("/statusCatalog", statusC_controller_1.createstatusCatalog);
+exports.statusCatalogRouter.put("/statusCatalog/:id", statusC_controller_1.updatestatusCatalog);
+exports.statusCatalogRouter.delete("/statusCatalog/:id", statusC_controller_1.deletestatusCatalog);

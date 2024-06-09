@@ -192,6 +192,14 @@ export type TSUsers = typeof usersTable.$inferSelect;
 export type TIRestaurantOwner = typeof restaurant_ownerTable.$inferInsert;
 export type TSRestaurantOwner = typeof restaurant_ownerTable.$inferSelect;
 
+export type TSUserRelations = {
+  comments: TSComment[];
+  addresses: TSAddress[];
+  orders: TSOrders[];
+  drivers: TSDriver[];
+  restaurantOwners: TSRestaurantOwner[];
+};
+
   //relations
   //user relations
   export const userRelations = relations(usersTable, ({many}) => ({
@@ -201,6 +209,7 @@ export type TSRestaurantOwner = typeof restaurant_ownerTable.$inferSelect;
     driver: many(driverTable),
     restaurant_owner: many(restaurant_ownerTable)
   }))
+  
 
 //   comment relations
   export const commentRelations = relations(commentTable, ({one}) => ({

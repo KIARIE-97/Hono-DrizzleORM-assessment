@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.orderStatusRouter = void 0;
+const hono_1 = require("hono");
+const orderS_controller_1 = require("./orderS.controller");
+// import { restaurantsSchema } from "../validators";
+exports.orderStatusRouter = new hono_1.Hono();
+exports.orderStatusRouter.get("/orderStatus", orderS_controller_1.listorderStatus);
+exports.orderStatusRouter.get("/orderStatus/:id", orderS_controller_1.getSingleorderStatus);
+exports.orderStatusRouter.post("/orderStatus", orderS_controller_1.createorderStatus);
+exports.orderStatusRouter.put("/orderStatus/:id", orderS_controller_1.updateorderStatus);
+exports.orderStatusRouter.delete("/orderStatus/:id", orderS_controller_1.deleteRestaurant);

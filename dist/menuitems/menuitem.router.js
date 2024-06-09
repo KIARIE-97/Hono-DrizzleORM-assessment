@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.menuItemRouter = void 0;
+const hono_1 = require("hono");
+const menuitem_controller_1 = require("./menuitem.controller");
+// import { restaurantsSchema } from "../validators";
+exports.menuItemRouter = new hono_1.Hono();
+exports.menuItemRouter.get("/restaurants", menuitem_controller_1.listMenu);
+exports.menuItemRouter.get("/restaurants/:id", menuitem_controller_1.getSinglemenuItem);
+exports.menuItemRouter.post("/restaurants", menuitem_controller_1.createmenuItem);
+exports.menuItemRouter.put("/restaurants/:id", menuitem_controller_1.updatemenuItem);
+exports.menuItemRouter.delete("/restaurants/:id", menuitem_controller_1.deletemenuItem);
