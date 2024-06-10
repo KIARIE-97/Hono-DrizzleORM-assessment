@@ -25,15 +25,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.client = void 0;
 require("dotenv/config");
-const node_postgres_1 = require("drizzle-orm/node-postgres");
-const pg_1 = require("pg");
+const neon_http_1 = require("drizzle-orm/neon-http");
+const serverless_1 = require("@neondatabase/serverless");
 const schema = __importStar(require("./schema"));
-exports.client = new pg_1.Client({
-    connectionString: process.env.Database_URL,
-});
-const main = async () => {
-    await exports.client.connect();
-};
-main();
-const db = (0, node_postgres_1.drizzle)(exports.client, { schema, logger: true }); // create a drizzle instance
-exports.default = db; // This is the default export of the file
+const databaseUrl = process.env.DATABASE_URL;
+exports.client = (0, serverless_1.neon)(databaseUrl);
+const db = (0, neon_http_1.drizzle)(exports.client, { schema, logger: true });
+exports.default = db;
+//  config({ path: ".env" });
+//  export const client = new Client({
+//     connectionString: process.env.Database_URL as string,
+//  });
+//  const main = async () => {
+//     await client.connect();
+//  }
+//  main();
+//  const db = drizzle(client, {schema, logger: true});// create a drizzle instance
+//  export default db; // This is the default export of the file

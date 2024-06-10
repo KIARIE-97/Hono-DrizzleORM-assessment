@@ -1,4 +1,4 @@
-import { primaryKey, pgTable,  serial, varchar, text, integer, date, boolean, decimal  } from "drizzle-orm/pg-core";
+import { primaryKey, pgTable, pgEnum, serial, varchar, text, integer, date, boolean, decimal  } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import { profile, table } from "console";
 import exp from "constants";
@@ -149,7 +149,29 @@ export const categoryTable = pgTable('category', {
     ownerId: integer("owner_id").notNull().references(() => usersTable.id, { onDelete: "cascade" }),
   });
 
+// Define the role enum
+  export const roleEnum = pgEnum("role", ["admin", "user"])
+
+  // Define the auth_on_users table
+  export const AuthOnUsersTable = pgTable("auth_on_users", {
+    id: serial("id").primaryKey(),
+    userId: integer("user_id").notNull().references(() => usersTable.id, { onDelete: "cascade" }),
+    password: varchar("password", { length: 100 }),
+    username: varchar("username", { length: 100 }),
+    role: roleEnum("role").default("user")
+});
+
+export const AuthOnUsersRelations = relations(AuthOnUsersTable, ({ one }) => ({
+    user: one(usersTable, {
+        fields: [AuthOnUsersTable.userId],
+        references: [usersTable.id]
+    })
+}));
+
   // Define the types
+  export type TIAuthOnUser = typeof AuthOnUsersTable.$inferInsert;
+export type TSAuthOnUser = typeof AuthOnUsersTable.$inferSelect;
+
 export type TIAddress = typeof addressTable.$inferInsert;
 export type TSAddress = typeof addressTable.$inferSelect;
 

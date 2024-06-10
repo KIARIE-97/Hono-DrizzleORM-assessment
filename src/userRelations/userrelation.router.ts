@@ -4,6 +4,6 @@ import { listUsers } from './userrelations.controller';
 
 export const userRelationRouter = new Hono();
 
-userRelationRouter.get('/userrelations', listUsers);
+userRelationRouter.get('/userrelations/:id', listUsers);
 
 

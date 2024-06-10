@@ -5,4 +5,4 @@ exports.userRelationRouter = void 0;
 const hono_1 = require("hono");
 const userrelations_controller_1 = require("./userrelations.controller");
 exports.userRelationRouter = new hono_1.Hono();
-exports.userRelationRouter.get('/userrelations', userrelations_controller_1.listUsers);
+exports.userRelationRouter.get('/userrelations/:id', userrelations_controller_1.listUsers);

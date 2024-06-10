@@ -1,7 +1,7 @@
-import { migrate } from "drizzle-orm/node-postgres/migrator";
+import { migrate } from "drizzle-orm/neon-http/migrator";
 import "dotenv/config";
 
-import {db} from "./db";
+import db from "./db";
 
 // import { NeonHttpDatabase } from "drizzle-orm/neon-http";
 

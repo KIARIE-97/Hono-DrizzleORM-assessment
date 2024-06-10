@@ -3,9 +3,10 @@ GET http://localhost:3000/
 
 ###
 GET http://localhost:8000/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aG9yIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MDYwODUwfQ.yaQRFpKVt42gmgi5UiWVOS--hfcSbwgD7muaf50f9Fk
 
 ###
-GET http://localhost:8000/userrelations
+GET http://localhost:8000/userrelations/1
 
 ###
 GET http://localhost:8000/states
@@ -23,7 +24,8 @@ GET http://localhost:8000/address
 GET http://localhost:8000/restaurants
 
 ###
-GET http://localhost:8000/users/4
+GET http://localhost:8000/users/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODA2MTM3Mn0.LtkoeUstIiIFZYzFTA3BArPEWQjPDmoq02V4J4dCcPE
 
 ###
 GET http://localhost:8000/states/1
@@ -163,3 +165,24 @@ DELETE http://localhost:8000/cities/5
 
 ###
 DELETE http://localhost:8000/restaurants/7
+
+###
+POST  http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+   "userId": 2,
+  "username": "thor",
+  "password": "pass",
+  "role": "admin"
+}
+
+###
+POST  http://localhost:8000/auth/login
+Content-Type: application/json
+
+{
+   
+  "username": "tom",
+  "password": "3456"
+}

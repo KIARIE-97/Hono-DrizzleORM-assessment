@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.status_catalogRelations = exports.order_statusRelations = exports.driverRelations = exports.stateRelations = exports.cityRelations = exports.order_menu_itemRelations = exports.categoryRelations = exports.menu_itemRelations = exports.restaurant_ownerRelations = exports.restaurantRelations = exports.ordersRelations = exports.addressRelations = exports.commentRelations = exports.userRelations = exports.restaurant_ownerTable = exports.usersTable = exports.status_catalogTable = exports.stateTable = exports.restaurantTable = exports.ordersTable = exports.order_statusTable = exports.order_menu_itemTable = exports.menu_itemTable = exports.driverTable = exports.commentTable = exports.cityTable = exports.categoryTable = exports.addressTable = void 0;
+exports.status_catalogRelations = exports.order_statusRelations = exports.driverRelations = exports.stateRelations = exports.cityRelations = exports.order_menu_itemRelations = exports.categoryRelations = exports.menu_itemRelations = exports.restaurant_ownerRelations = exports.restaurantRelations = exports.ordersRelations = exports.addressRelations = exports.commentRelations = exports.userRelations = exports.AuthOnUsersRelations = exports.AuthOnUsersTable = exports.roleEnum = exports.restaurant_ownerTable = exports.usersTable = exports.status_catalogTable = exports.stateTable = exports.restaurantTable = exports.ordersTable = exports.order_statusTable = exports.order_menu_itemTable = exports.menu_itemTable = exports.driverTable = exports.commentTable = exports.cityTable = exports.categoryTable = exports.addressTable = void 0;
 const pg_core_1 = require("drizzle-orm/pg-core");
 const drizzle_orm_1 = require("drizzle-orm");
 exports.addressTable = (0, pg_core_1.pgTable)('address', {
@@ -132,6 +132,22 @@ exports.restaurant_ownerTable = (0, pg_core_1.pgTable)('restaurant_owner', {
     restaurantId: (0, pg_core_1.integer)("restaurant_id").notNull().references(() => exports.restaurantTable.id, { onDelete: "cascade" }),
     ownerId: (0, pg_core_1.integer)("owner_id").notNull().references(() => exports.usersTable.id, { onDelete: "cascade" }),
 });
+// Define the role enum
+exports.roleEnum = (0, pg_core_1.pgEnum)("role", ["admin", "user"]);
+// Define the auth_on_users table
+exports.AuthOnUsersTable = (0, pg_core_1.pgTable)("auth_on_users", {
+    id: (0, pg_core_1.serial)("id").primaryKey(),
+    userId: (0, pg_core_1.integer)("user_id").notNull().references(() => exports.usersTable.id, { onDelete: "cascade" }),
+    password: (0, pg_core_1.varchar)("password", { length: 100 }),
+    username: (0, pg_core_1.varchar)("username", { length: 100 }),
+    role: (0, exports.roleEnum)("role").default("user")
+});
+exports.AuthOnUsersRelations = (0, drizzle_orm_1.relations)(exports.AuthOnUsersTable, ({ one }) => ({
+    user: one(exports.usersTable, {
+        fields: [exports.AuthOnUsersTable.userId],
+        references: [exports.usersTable.id]
+    })
+}));
 //relations
 //user relations
 exports.userRelations = (0, drizzle_orm_1.relations)(exports.usersTable, ({ many }) => ({

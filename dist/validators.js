@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.citySchema = exports.driverSchema = exports.stateSchema = exports.userSchema = void 0;
+exports.registerUserSchema = exports.loginUserSchema = exports.citySchema = exports.driverSchema = exports.stateSchema = exports.userSchema = void 0;
 const zod_1 = require("zod");
 // import{ zValidator } from "@hono/node-server"
 exports.userSchema = zod_1.z.object({
@@ -29,4 +29,14 @@ exports.citySchema = zod_1.z.object({
     // "id": 4,
     name: zod_1.z.string(),
     stateId: zod_1.z.number()
+});
+exports.loginUserSchema = zod_1.z.object({
+    username: zod_1.z.string(),
+    password: zod_1.z.string()
+});
+exports.registerUserSchema = zod_1.z.object({
+    userId: zod_1.z.number(),
+    username: zod_1.z.string(),
+    password: zod_1.z.string(),
+    role: zod_1.z.string().optional(),
 });

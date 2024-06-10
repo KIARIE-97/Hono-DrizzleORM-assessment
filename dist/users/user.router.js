@@ -5,6 +5,7 @@ const hono_1 = require("hono");
 const zod_validator_1 = require("@hono/zod-validator");
 const user_controller_1 = require("./user.controller");
 const validators_1 = require("../validators");
+const bearAuth_1 = require("../middlewares/bearAuth");
 exports.userRouter = new hono_1.Hono();
 const users = [
     {
@@ -18,8 +19,8 @@ const users = [
         email: "jane@gmail.com"
     }
 ];
-exports.userRouter.get("/users", user_controller_1.listUsers);
-exports.userRouter.get("/users/:id", user_controller_1.getSingleUser);
+exports.userRouter.get("/users", bearAuth_1.adminRoleAuth, user_controller_1.listUsers);
+exports.userRouter.get("/users/:id", bearAuth_1.userRoleAuth, user_controller_1.getSingleUser);
 exports.userRouter.post("/users", (0, zod_validator_1.zValidator)('json', validators_1.userSchema, (results, c) => {
     if (!results.success) {
         return c.json(results.error, 400);

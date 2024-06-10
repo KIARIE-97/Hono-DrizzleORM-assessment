@@ -20,6 +20,7 @@ import{ statusCatalogRouter } from './status catalogues/statusC.router'
 import{ ordersRouter } from './orders/order.router'
 import{ orderStatusRouter } from './orderStatus/orderS.router'
 import{ userRelationRouter } from './userRelations/userrelation.router'
+import{ authRouter } from './auth/auth.router'
 
 const app = new Hono()
 
@@ -55,6 +56,7 @@ app.route( "/", statusCatalogRouter)
 app.route( "/", ordersRouter)
 app.route( "/", orderStatusRouter)
 app.route( "/", userRelationRouter)
+app.route( "auth/", authRouter)
 
 
 console.log(`Server is running on port ${process.env.PORT}`)

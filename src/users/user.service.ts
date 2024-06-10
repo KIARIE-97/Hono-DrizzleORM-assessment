@@ -17,7 +17,7 @@ export const getUserService = async (id: number): Promise<TIUsers | undefined> =
 export const createUserService = async (user: TIUsers): Promise<TIUsers> => {
     await db.insert(usersTable).values(user)
     return user;
-
+ 
 }
 
 //update user
