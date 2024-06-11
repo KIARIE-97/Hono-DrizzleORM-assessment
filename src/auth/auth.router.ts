@@ -16,3 +16,4 @@ authRouter.post('/login', zValidator('json', loginUserSchema, (result, c) => {
         return c.json(result.error, 400)
     }
 }), loginUser)
+

@@ -19,8 +19,10 @@ import{ commentRouter } from './comments/comment.router'
 import{ statusCatalogRouter } from './status catalogues/statusC.router'
 import{ ordersRouter } from './orders/order.router'
 import{ orderStatusRouter } from './orderStatus/orderS.router'
-import{ userRelationRouter } from './userRelations/userrelation.router'
+import{ userRelationRouter } from './relations/userRelations/userrelation.router'
+import{ orderRelationRouter } from './relations/ordersRelations/orderrelation.router'
 import{ authRouter } from './auth/auth.router'
+
 
 const app = new Hono()
 
@@ -55,17 +57,18 @@ app.route( "/", commentRouter)
 app.route( "/", statusCatalogRouter)
 app.route( "/", ordersRouter)
 app.route( "/", orderStatusRouter)
-app.route( "/", userRelationRouter)
+app.route( "relation/", userRelationRouter)
+app.route( "relation/", orderRelationRouter)
 app.route( "auth/", authRouter)
 
 
-console.log(`Server is running on port ${process.env.PORT}`)
 
 serve({
   fetch: app.fetch,
-  port: Number(process.env.PORT) ||3000
-})
-
+  port: Number(8000)
+  })
+  
+  console.log(`Server is running on port 8000`)
 
 
   // //drizzle code

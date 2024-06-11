@@ -12,6 +12,24 @@ GET http://localhost:8000/userrelations/1
 GET http://localhost:8000/states
 
 ###
+GET http://localhost:8000/relation/usercommentrelations
+
+###
+GET http://localhost:8000/relation/useraddressrelations
+
+###
+GET http://localhost:8000/relation/userorderrelations
+
+###
+GET http://localhost:8000/relation/orderscommentrelations
+
+###
+GET http://localhost:8000/relation/ordersaddressrelations
+
+###
+GET http://localhost:8000/relation/orderrestaurantrelations
+
+###
 GET http://localhost:8000/drivers
 
 ###
