@@ -8,26 +8,8 @@ import {adminRoleAuth, userRoleAuth} from "../middlewares/bearAuth"
 
 export const userRouter = new Hono();
 
-const users = [
-    {
-        id: 1,
-        name: "John Doe",
-        email: "john@gmail.com"
-    },
-    {
-        id: 2,
-        name: "Jane Doe",
-        email: "jane@gmail.com"}
-]
-
-    interface TUser {
-        id: number;
-        name: string;
-        email: string;
-    }
-
-userRouter.get("/users",adminRoleAuth, listUsers)
-userRouter.get("/users/:id",userRoleAuth, getSingleUser)
+userRouter.get("/users", adminRoleAuth, listUsers)
+userRouter.get("/users/:id", userRoleAuth, getSingleUser)
 userRouter.post("/users", zValidator('json', userSchema, (results, c) => {
     if (!results.success){
         return c.json(results.error, 400)

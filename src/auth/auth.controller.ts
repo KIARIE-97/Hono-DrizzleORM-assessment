@@ -1,11 +1,9 @@
 import { Context } from 'hono'
 import { createAuthUserService, userLoginService } from './auth.service';
 import bcrypt from 'bcrypt';
-import "dotenv/config"
-import { error } from 'console';
 import { sign } from 'hono/jwt';
-import exp from 'constants';
-import { date } from 'drizzle-orm/mysql-core';
+import "dotenv/config"
+
 
 
 export const registerUser = async (c: Context) => {

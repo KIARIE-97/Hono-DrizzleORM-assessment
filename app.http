@@ -3,7 +3,7 @@ GET http://localhost:3000/
 
 ###
 GET http://localhost:8000/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aG9yIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MDYwODUwfQ.yaQRFpKVt42gmgi5UiWVOS--hfcSbwgD7muaf50f9Fk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aG9yIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MTAzMTMxfQ.reI7Rk3hJvSbWfPlwWGzxVO6mvewbifPKhRtrd3xhVU
 
 ###
 GET http://localhost:8000/userrelations/1
@@ -25,7 +25,8 @@ GET http://localhost:8000/restaurants
 
 ###
 GET http://localhost:8000/users/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODA2MTM3Mn0.LtkoeUstIiIFZYzFTA3BArPEWQjPDmoq02V4J4dCcPE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODEwMzAzNX0.t--Hn7SnczA0z4Snp6EZIngUVE2ganmbHfz065LcS8A
+
 
 ###
 GET http://localhost:8000/states/1
@@ -183,6 +184,6 @@ Content-Type: application/json
 
 {
    
-  "username": "tom",
-  "password": "3456"
+  "username": "thor",
+  "password": "pass"
 }
