@@ -3,7 +3,7 @@ GET http://localhost:3000/
 
 ###
 GET http://localhost:8000/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aG9yIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MTAzMTMxfQ.reI7Rk3hJvSbWfPlwWGzxVO6mvewbifPKhRtrd3xhVU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aG9yIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MTQ3NzM4fQ.N6ZscdavPMbBqAJtRheiwZ52wBuWRQs4OaR9BHtZyFs
 
 ###
 GET http://localhost:8000/userrelations/1
@@ -28,6 +28,18 @@ GET http://localhost:8000/relation/ordersaddressrelations
 
 ###
 GET http://localhost:8000/relation/orderrestaurantrelations
+
+###
+GET http://localhost:8000/relation/restaurantcityrelations
+
+###
+GET http://localhost:8000/relation/restaurantmenurelations
+
+###
+GET http://localhost:8000/relation/restaurantorderrelations
+
+###
+GET http://localhost:8000/relation/Menuitemrestaurantrelations
 
 ###
 GET http://localhost:8000/drivers
@@ -190,10 +202,10 @@ POST  http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
-   "userId": 2,
-  "username": "thor",
-  "password": "pass",
-  "role": "admin"
+   "userId": 8,
+  "username": "maxi",
+  "password": "234m",
+  "role": "user"
 }
 
 ###

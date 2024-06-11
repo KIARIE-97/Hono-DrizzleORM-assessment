@@ -21,6 +21,8 @@ import{ ordersRouter } from './orders/order.router'
 import{ orderStatusRouter } from './orderStatus/orderS.router'
 import{ userRelationRouter } from './relations/userRelations/userrelation.router'
 import{ orderRelationRouter } from './relations/ordersRelations/orderrelation.router'
+import{ restaurantRelationRouter } from './relations/restaurantRelations/restaurantrelation.router'
+import{ MenuitemRelationRouter } from './relations/menuitemsrelations/menuI.router'
 import{ authRouter } from './auth/auth.router'
 
 
@@ -59,6 +61,8 @@ app.route( "/", ordersRouter)
 app.route( "/", orderStatusRouter)
 app.route( "relation/", userRelationRouter)
 app.route( "relation/", orderRelationRouter)
+app.route( "relation/", restaurantRelationRouter)
+app.route( "relation/", MenuitemRelationRouter)
 app.route( "auth/", authRouter)
 
 
@@ -68,7 +72,7 @@ serve({
   port: Number(8000)
   })
   
-  console.log(`Server is running on port 8000`)
+  console.log(`Server is running on port 8000...`)
 
 
   // //drizzle code
