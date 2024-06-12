@@ -5,7 +5,7 @@ import * as schema from "./schema";
 
 import { Client } from "pg";
 
-const databaseUrl = process.env.DATABASE_URL as string;
+const databaseUrl = process.env.Database_URL as string;
 
  export const  client = neon(databaseUrl);
 const db = drizzle(client, { schema, logger: true });
