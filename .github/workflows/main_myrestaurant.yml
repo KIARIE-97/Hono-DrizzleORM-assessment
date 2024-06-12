@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - myRestaurant
+name: Build and deploy Node.js app to Azure Web App - myrestaurant
 
 on:
   push:
@@ -57,15 +57,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_4AF527DF9A3146F88E21C958FCAA7DD9 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_872F997AB08044148A838D2D00F19281 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AA40B2EF4A92479B93E8B6467ED28B80 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E116FF111DBC4B12B3B0E34ABCEAE91E }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1327A042356243AC8D88725830E53D52 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AE8FB1F92164470B8176E3804C891A46 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'myRestaurant'
+          app-name: 'myrestaurant'
           slot-name: 'Production'
           package: .
           
