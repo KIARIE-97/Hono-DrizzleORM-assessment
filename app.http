@@ -3,7 +3,7 @@ GET http://localhost:8000/ok
 
 ###
 GET http://localhost:8000/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aG9yIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MTQ3NzM4fQ.N6ZscdavPMbBqAJtRheiwZ52wBuWRQs4OaR9BHtZyFs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MTk4NDUzfQ.S4HC5F6mc29pEyfEHRoP6jW__rVM5qxaSuXtS0mGud8
 
 ###
 GET http://localhost:8000/userrelations/1
@@ -39,6 +39,12 @@ GET http://localhost:8000/relation/restaurantmenurelations
 GET http://localhost:8000/relation/restaurantorderrelations
 
 ###
+GET http://localhost:8000/relation/driverUserrelations
+
+###
+GET http://localhost:8000/relation/userdriverrelations
+
+###
 GET http://localhost:8000/relation/Menuitemrestaurantrelations
 
 ###
@@ -52,6 +58,9 @@ GET http://localhost:8000/address
 
 ###
 GET http://localhost:8000/restaurants
+
+###
+GET http://localhost:8000/orders
 
 ###
 GET http://localhost:8000/users/1
@@ -90,6 +99,26 @@ Content-Type: application/json
   }
 
 ###
+POST http://localhost:8000/orders
+Content-Type: application/json
+
+{
+    "id": 7,
+    "estimated_delivery_time": null,
+    "actual_delivery_time": null,
+    "restaurantId": 1,
+    "deliveryAddressId": 1,
+    "userId": 1,
+    "driverId": 1,
+    "price": "1000",
+    "discount": "50",
+    "final_price": "950",
+    "comment": "none",
+    "created_at": null,
+    "updated_at": null
+  }
+
+###
 POST http://localhost:8000/states
  Content-Type: application/json
 
@@ -104,11 +133,11 @@ POST http://localhost:8000/drivers
  Content-Type: application/json
 
  {
- "id": 4,
-  "car_make": "isuzu",
-  "car_model": "probox",
-  "car_year": 2023,
-  "userId": 2,
+ "id": 5,
+  "car_make": "jaguar",
+  "car_model": "jaguar-xj",
+  "car_year": 2018,
+  "userId": 8,
   "online": true,
   "delivering": true
  
@@ -118,7 +147,7 @@ POST http://localhost:8000/cities
  Content-Type: application/json
 
  {
-    "id": 7,
+    "id": 4,
     "name": "embu",
     "stateId": 2
   }
@@ -202,10 +231,10 @@ POST  http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
-   "userId": 8,
-  "username": "maxi",
-  "password": "234m",
-  "role": "user"
+   "userId": 4,
+  "username": "zara",
+  "password": "sarahk",
+  "role": "admin"
 }
 
 ###
@@ -214,6 +243,6 @@ Content-Type: application/json
 
 {
    
-  "username": "thor",
-  "password": "pass"
+  "username": "zara",
+  "password": "sarahk"
 }

@@ -36,3 +36,19 @@ export const getUsersWithOrdersService = async (): Promise<TSUsers[] | null> => 
       }
   })
 }
+
+export const getDriversWithUserService = async (): Promise<TSUsers[] | null> => {
+  return await db.query.usersTable.findMany({
+      with: {
+        driver : {
+          columns: {
+            car_make: true,
+            car_model: true,
+            car_year: true,
+            delivering: true
+
+          }
+         }
+      }
+  })
+}
