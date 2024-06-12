@@ -1,5 +1,5 @@
 
-GET http://localhost:3000/
+GET http://localhost:8000/ok
 
 ###
 GET http://localhost:8000/users
@@ -79,11 +79,11 @@ POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-    "id": "8",
-  "name": "max",
+    "id": "4",
+  "name": "sara",
   "contact_phone": 267830,
   "phone_verified": true,
-  "email": "lon@gmail.com",
+  "email": "sara@gmail.com",
   "email_verified": true,
   "confirmation_code": null,
   "password": 234500

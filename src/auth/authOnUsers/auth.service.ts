@@ -1,5 +1,5 @@
-import {TIAuthOnUser, TSAuthOnUser, AuthOnUsersTable} from '../drizzle/schema'
-import db from '../drizzle/db'
+import {TIAuthOnUser, TSAuthOnUser, AuthOnUsersTable} from '../../drizzle/schema'
+import db from '../../drizzle/db'
 import { sql } from "drizzle-orm";
 
 export const createAuthUserService = async (user: TIAuthOnUser): Promise<string | null> => {

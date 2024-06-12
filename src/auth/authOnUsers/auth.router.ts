@@ -1,6 +1,6 @@
 import { zValidator } from '@hono/zod-validator'
 import {Hono} from 'hono'
-import {registerUserSchema, loginUserSchema} from '../validators'
+import {registerUserSchema, loginUserSchema} from '../../validators'
 import {registerUser, loginUser } from './auth.controller'
 
 export const authRouter = new Hono();

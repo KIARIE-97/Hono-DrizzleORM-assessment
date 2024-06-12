@@ -4,7 +4,7 @@ import {zValidator} from "@hono/zod-validator";
 import { listUsers, getSingleUser, createUser, updateUser, deleteUser } from "./user.controller";
 import { get } from "http";
 import { userSchema } from "../validators";
-import {adminRoleAuth, userRoleAuth} from "../middlewares/bearAuth"
+import {adminRoleAuth, userRoleAuth, adminUserRoleAuth} from "../middlewares/bearAuth"
 
 export const userRouter = new Hono();
 
@@ -16,7 +16,7 @@ userRouter.post("/users", zValidator('json', userSchema, (results, c) => {
     }
 }) ,createUser)
 userRouter.put("/users/:id", updateUser)
-userRouter.delete("/users/:id", deleteUser)
+userRouter.delete("/users/:id",adminRoleAuth, deleteUser)
 
     //get single user
     // userRouter.get("/users/:id", (c: Context) => {

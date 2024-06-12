@@ -30,3 +30,4 @@ export const authMiddlewares = async (c: Context, next: Next, requiredRole: stri
 
 export const adminRoleAuth = async (c: Context, next: Next) => await authMiddlewares(c, next, "admin")
 export const userRoleAuth = async (c: Context, next: Next) => await authMiddlewares(c, next, "user")
+export const adminUserRoleAuth = async (c: Context, next: Next) => await authMiddlewares(c, next, "user && admin")

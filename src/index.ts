@@ -23,13 +23,13 @@ import{ userRelationRouter } from './relations/userRelations/userrelation.router
 import{ orderRelationRouter } from './relations/ordersRelations/orderrelation.router'
 import{ restaurantRelationRouter } from './relations/restaurantRelations/restaurantrelation.router'
 import{ MenuitemRelationRouter } from './relations/menuitemsrelations/menuI.router'
-import{ authRouter } from './auth/auth.router'
+import{ authRouter } from './auth/authOnUsers/auth.router'
 
 
 const app = new Hono()
 
 
-app.get('/', (c) => {
+app.get('/ok', (c) => {
     return c.text('Hello Hono!')
   })
 
