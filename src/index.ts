@@ -24,6 +24,7 @@ import{ orderRelationRouter } from './relations/ordersRelations/orderrelation.ro
 import{ restaurantRelationRouter } from './relations/restaurantRelations/restaurantrelation.router'
 import{ MenuitemRelationRouter } from './relations/menuitemsrelations/menuI.router'
 import{ driverRelationRouter } from './relations/driverrelations/driverrelation.router'
+import{ stateRelationRouter } from './relations/stateRelations/staterelations.router'
 import{ authRouter } from './auth/authOnUsers/auth.router'
 
 
@@ -65,6 +66,7 @@ app.route( "relation/", orderRelationRouter)
 app.route( "relation/", restaurantRelationRouter)
 app.route( "relation/", MenuitemRelationRouter)
 app.route( "relation/", driverRelationRouter)
+app.route( "relation/", stateRelationRouter)
 app.route( "auth/", authRouter)
 
 

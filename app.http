@@ -45,6 +45,12 @@ GET http://localhost:8000/relation/driverUserrelations
 GET http://localhost:8000/relation/userdriverrelations
 
 ###
+GET http://localhost:8000/relation/statecityrelations/2
+
+###
+GET http://localhost:8000/relation/singleuserdriversrelations/8
+
+###
 GET http://localhost:8000/relation/Menuitemrestaurantrelations
 
 ###
@@ -147,9 +153,9 @@ POST http://localhost:8000/cities
  Content-Type: application/json
 
  {
-    "id": 4,
-    "name": "embu",
-    "stateId": 2
+    "id": 6,
+    "name": "othaya",
+    "stateId": 3
   }
 
 ###

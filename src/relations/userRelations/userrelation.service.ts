@@ -1,6 +1,6 @@
-import {TSUsers, usersTable, commentTable, addressTable, ordersTable, driverTable } from '../../drizzle/schema'
+import {TSUsers, usersTable, TIUsers } from '../../drizzle/schema'
 import db from '../../drizzle/db'
-import { Column, sql } from "drizzle-orm";
+import { eq} from "drizzle-orm";
 
 export const getUsersWithcommentService = async (): Promise<TSUsers[] | null> => {
   return await db.query.usersTable.findMany({
@@ -49,6 +49,22 @@ export const getDriversWithUserService = async (): Promise<TSUsers[] | null> => 
 
           }
          }
+      }
+  })
+}
+
+export const getsingleUsersWithDriverService = async (id: number): Promise<TIUsers | undefined> => {
+  return await db.query.usersTable.findFirst({
+      where: eq(usersTable.id, id),
+      with: {
+        driver : {
+         columns: {
+          car_make: true,
+          car_model: true,
+          car_year: true,
+          delivering: true
+         }
+        }
       }
   })
 }
