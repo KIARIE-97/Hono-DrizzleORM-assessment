@@ -1,10 +1,16 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db"
-import {TIDriver, TSDriver, driverTable} from "../drizzle/schema";
+import {TIDriver, TSDriver,simpleDriver, driverTable} from "../drizzle/schema";
 
 //select all driver
-export const driverService = async (): Promise<TSDriver[] | null> => {
-    return await db.query.driverTable.findMany()
+export const driverService = async (): Promise<simpleDriver[] | null> => {
+    return await db.query.driverTable.findMany({
+        columns:{
+            car_make: true,
+            online: true,
+            delivering: true
+        }
+    })
 }
 
 //select one driver
