@@ -1,9 +1,12 @@
-import {TSRestaurant, restaurantTable, usersTable, commentTable, addressTable, ordersTable, driverTable } from '../../drizzle/schema'
+import {TSRestaurant, simpleRestaurant, restaurantTable, usersTable, commentTable, addressTable, ordersTable, driverTable } from '../../drizzle/schema'
 import db from '../../drizzle/db'
 
 
-export const getrestaurantWithcityService = async (): Promise<TSRestaurant[] | null> => {
+export const getrestaurantWithcityService = async (): Promise<simpleRestaurant[] | null> => {
   return await db.query.restaurantTable.findMany({
+    columns:{
+      name: true,
+    },
       with: {
          city : {
           columns: {
@@ -13,8 +16,11 @@ export const getrestaurantWithcityService = async (): Promise<TSRestaurant[] | n
       }
   })
 }
-export const getrestaurantWithmenuitemsService = async (): Promise<TSRestaurant[] | null> => {
+export const getrestaurantWithmenuitemsService = async (): Promise<simpleRestaurant[] | null> => {
   return await db.query.restaurantTable.findMany({
+    columns:{
+      name: true,
+    },
       with: {
          menu_item :{
           columns: {
@@ -25,8 +31,11 @@ export const getrestaurantWithmenuitemsService = async (): Promise<TSRestaurant[
       }
   })
 }
-export const getrestaurantWithOrdersService = async (): Promise<TSRestaurant[] | null> => {
+export const getrestaurantWithOrdersService = async (): Promise<simpleRestaurant[] | null> => {
   return await db.query.restaurantTable.findMany({
+    columns:{
+      name: true,
+    },
       with: {
          orders : {
           columns: {

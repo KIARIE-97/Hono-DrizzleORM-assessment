@@ -7,15 +7,14 @@ GET http://localhost:8000/users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 ###
 GET http://localhost:8000/relation/usercommentrelations
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODI3ODc4Nn0.tOy4xwthrcwstxoX17uHaM1zFdPnaI39Mju8EXAFFCE
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 ###
 GET http://localhost:8000/relation/useraddressrelations
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODI3ODc4Nn0.tOy4xwthrcwstxoX17uHaM1zFdPnaI39Mju8EXAFFCE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 ###
 GET http://localhost:8000/relation/userorderrelations
-Authorization:
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 ###
 GET http://localhost:8000/relation/orderscommentrelations
@@ -34,27 +33,37 @@ GET http://localhost:8000/relation/restaurantmenurelations
 
 ###
 GET http://localhost:8000/relation/restaurantorderrelations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 ###
 GET http://localhost:8000/relation/driverUserrelations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 ###
 GET http://localhost:8000/relation/userdriverrelations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 
 ###
 GET http://localhost:8000/userrelations/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 ###
 GET http://localhost:8000/states
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 ###
 GET http://localhost:8000/relation/Menuitemrestaurantrelations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
+
+###
+GET http://localhost:8000/address
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 
 
 # -------------------------------------------------user authority----------------------------------------------------------------------------------------------
 ###
-GET http://localhost:8000/relation/statecityrelations/2
+GET http://localhost:8000/relation/statecityrelations/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODI4NzYxMH0.tdI-igrKXBwW0rRGCteXD9PfWLKk6uQplFrlkJ9UC10
 ###
 GET http://localhost:8000/relation/singleuserdriversrelations/4
@@ -76,8 +85,6 @@ GET http://localhost:8000/cities
 ###
 GET http://localhost:8000/citiesrelations
 
-###
-GET http://localhost:8000/address
 
 ###
 GET http://localhost:8000/restaurants
@@ -99,7 +106,7 @@ GET  http://localhost:8000/drivers/1
 GET http://localhost:8000/cities/3
 
 ###
-GET http://localhost:8000/address/4
+GET http://localhost:8000/address/1
 
 ###
 
@@ -109,16 +116,17 @@ GET http://localhost:8000/restaurants/4
 POST http://localhost:8000/users
 Content-Type: application/json
 
-{
-    "id": "8",
-  "name": "maximas",
-  "contact_phone": 07267830,
-  "phone_verified": true,
-  "email": "max@gmail.com",
-  "email_verified": true,
-  "confirmation_code": null,
-  "password": 234500
-}
+
+  {
+    "id": 2,
+    "name": "joe",
+    "contact_phone": 0924533,
+    "phone_verified": false,
+    "email": "tjoe@gmail.com",
+    "email_verified": false,
+    "confirmation_code": null,
+    "password": 1400
+  }
 
 ###
 POST http://localhost:8000/orders
@@ -255,10 +263,10 @@ POST  http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
-   "userId": 4,
-  "username": "zara",
-  "password": "sarahk",
-  "role": "admin"
+   "userId": 3,
+  "username": "brayo",
+  "password": "1300",
+  "role": "user"
 }
 
 ###

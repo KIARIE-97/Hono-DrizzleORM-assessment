@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db"
-import {TICity, TSCity, cityTable} from "../drizzle/schema";
+import {TICity, TSCity, SimpleCity, cityTable} from "../drizzle/schema";
 
 export const cityService = async (): Promise<TSCity[] | null> => {
     return await db.query.cityTable.findMany()
@@ -13,7 +13,7 @@ export const getCityService = async (id: number): Promise<TICity | undefined> =>
     })
 }
 
-export const getcityWithallServices = async (): Promise<TSCity[] | null> => {
+export const getcityWithallServices = async (): Promise<SimpleCity[] | null> => {
     return await db.query.cityTable.findMany({
       columns: {
         name: true

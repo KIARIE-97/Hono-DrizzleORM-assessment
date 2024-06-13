@@ -1,9 +1,9 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db"
-import {TIAddress, TSAddress, addressTable} from "../drizzle/schema";
+import {TIAddress, TSAddress, SimpleAddress, addressTable} from "../drizzle/schema";
 
 //get all address
-export const addressService = async (): Promise<TSAddress[] | null> => {
+export const addressService = async (): Promise<SimpleAddress[] | null> => {
     return await db.query.addressTable.findMany({
         columns: {
             street_address_1: true,
@@ -13,14 +13,14 @@ export const addressService = async (): Promise<TSAddress[] | null> => {
     })
 }
 //get single address
-export const getAddressService = async (id: number): Promise<TIAddress | undefined> => {
+export const getAddressService = async (id: number): Promise<SimpleAddress | undefined> => {
     return await db.query.addressTable.findFirst({
-        where: eq(addressTable.id, id), 
-                columns: {
+        columns: {
                     street_address_1: true,
                     street_address_2: true,
                     zip_code: true
-                }
+                },
+        where: eq(addressTable.id, id)
     })
 }
 //create address

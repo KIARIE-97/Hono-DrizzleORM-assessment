@@ -3,7 +3,8 @@ import db from "../drizzle/db"
 import {TICategory, TSCategory, categoryTable} from "../drizzle/schema";
 
 export const categoryService = async (): Promise<TSCategory[] | null> => {
-    return await db.query.categoryTable.findMany()
+    return await db.query.categoryTable.findMany(
+    )
 }
 
 //get one restaurant

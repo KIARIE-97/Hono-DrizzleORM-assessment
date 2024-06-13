@@ -156,7 +156,7 @@ export const categoryTable = pgTable('category', {
   export const AuthOnUsersTable = pgTable("auth_on_users", {
     id: serial("id").primaryKey(),
     userId: integer("user_id").notNull().references(() => usersTable.id, { onDelete: "cascade" }),
-    password: varchar("password", { length: 100 }),
+    password: varchar("password", { length: 100 }).notNull().references(() => usersTable.password, { onDelete: "cascade" }),
     username: varchar("username", { length: 100 }),
     role: roleEnum("role").default("user")
 });
@@ -174,18 +174,23 @@ export type TSAuthOnUser = typeof AuthOnUsersTable.$inferSelect;
 
 export type TIAddress = typeof addressTable.$inferInsert;
 export type TSAddress = typeof addressTable.$inferSelect;
+export type SimpleAddress = Pick<TSAddress, 'street_address_1' | 'street_address_2' | 'zip_code'>;
 
 export type TICategory = typeof categoryTable.$inferInsert;
 export type TSCategory = typeof categoryTable.$inferSelect;
 
 export type TICity = typeof cityTable.$inferInsert;
 export type TSCity = typeof cityTable.$inferSelect;
+export type SimpleCity= Pick<TSCity, 'name' >;
+
 
 export type TIComment = typeof commentTable.$inferInsert;
 export type TSComment = typeof commentTable.$inferSelect;
+export type simpleComment= Pick<TSComment, 'comment_text' | 'is_complaint' | 'is_praise' >;
 
 export type TIDriver = typeof driverTable.$inferInsert;
 export type TSDriver = typeof driverTable.$inferSelect;
+export type simpleDriver= Pick<TSDriver, 'car_make' | 'online' | 'delivering' >;
 
 export type TIMenuItem = typeof menu_itemTable.$inferInsert;
 export type TSMenuItem = typeof menu_itemTable.$inferSelect;
@@ -198,9 +203,11 @@ export type TSOrderStatus = typeof order_statusTable.$inferSelect;
 
 export type TIOrders = typeof ordersTable.$inferInsert;
 export type TSOrders = typeof ordersTable.$inferSelect;
+export type simpleOrder= Pick<TSOrders, 'price' | 'discount' | 'final_price' >;
 
 export type TIRestaurant = typeof restaurantTable.$inferInsert;
 export type TSRestaurant = typeof restaurantTable.$inferSelect;
+export type simpleRestaurant= Pick<TSRestaurant, 'name' >;
 
 export type TIState = typeof stateTable.$inferInsert;
 export type TSState = typeof stateTable.$inferSelect;
@@ -210,6 +217,7 @@ export type TSStatusCatalog = typeof status_catalogTable.$inferSelect;
 
 export type TIUsers = typeof usersTable.$inferInsert;
 export type TSUsers = typeof usersTable.$inferSelect;
+export type simpleUsers= Pick<TSUsers, 'name' | 'contact_phone' | 'email' >;
 
 export type TIRestaurantOwner = typeof restaurant_ownerTable.$inferInsert;
 export type TSRestaurantOwner = typeof restaurant_ownerTable.$inferSelect;

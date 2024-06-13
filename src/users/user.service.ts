@@ -33,22 +33,3 @@ export const deleteUserService = async (id: number) => {
     return "user deleted successfully!😑"
 }
 
-// export  const userLoginService =  async (user: TSAuthOnUser) => {
-//     const {username, password} = user;
-//     return await db.query.AuthOnUsersTable.findFirst({
-//         columns :{
-//             username: true,
-//             role: true,
-//             password: true
-//         }, where : sql `${AuthOnUsersTable.username} = ${username}`,
-//         with: {
-//             user: {
-//                 columns: {
-//                     name: true,
-//                     contact_phone: true,
-//                     email: true,
-//                 }
-//             }
-//         }
-//     })
-// }
