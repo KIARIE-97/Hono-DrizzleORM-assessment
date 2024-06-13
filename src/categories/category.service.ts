@@ -13,6 +13,19 @@ export const getCategoryService = async (id: number): Promise<TICategory | undef
     })
 }
 
+
+export const getcategoryWithmenuitemService = async (): Promise<TSCategory[] | null> => {
+    return await db.query.categoryTable.findMany({
+        with: {
+           menu_item : {
+            columns: {
+              name: true
+            }
+           }
+        }
+    })
+  }
+
 //create restaurant
 export const createCategoryService = async (category: TICategory): Promise<TICategory> => {
     await db.insert(categoryTable).values(category)

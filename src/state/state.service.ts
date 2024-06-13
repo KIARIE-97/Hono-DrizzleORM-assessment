@@ -14,6 +14,22 @@ export const getStateService = async (id: number): Promise<TIState | undefined> 
     })
 }
 
+export const specifiedDriverService = async (limit?:number):Promise<TSState[] | null> =>{
+    if(limit){
+ 
+        return await db.query.stateTable.findMany({
+            limit: limit
+        });
+    }
+    return await db.query.stateTable.findMany();
+ 
+}
+ 
+//limit
+export const limitstate= async (limit: number) => {
+    return await db.select().from(stateTable).limit(limit);
+  };
+
 //create state
 export const createStateService = async (user: TIState): Promise<TIState> => {
     await db.insert(stateTable).values(user)

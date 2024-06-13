@@ -150,7 +150,7 @@ export const categoryTable = pgTable('category', {
   });
 
 // Define the role enum
-  export const roleEnum = pgEnum("role", ["admin", "user"])
+  export const roleEnum = pgEnum("role", ["admin", "user", "both"])
 
   // Define the auth_on_users table
   export const AuthOnUsersTable = pgTable("auth_on_users", {

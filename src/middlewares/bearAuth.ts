@@ -20,6 +20,13 @@ export const authMiddlewares = async (c: Context, next: Next, requiredRole: stri
     if (!token) return c.json({ error: "token not provided"}, 401);
     const decoded = await verifyToken(token, process.env.JWT_SECRET as string);
     if (!decoded) return c.json({error: "invalid token"}, 401);
+
+
+    if (requiredRole === "both") {
+        if (decoded.role !== "admin" && decoded.role !== "user") return c.json({ error: "Unauthorized" }, 401);
+        return next();
+    }
+
     if (decoded.role !== requiredRole) return c.json({ error: "Unauthorized" }, 401);
 
     return next();
@@ -30,4 +37,4 @@ export const authMiddlewares = async (c: Context, next: Next, requiredRole: stri
 
 export const adminRoleAuth = async (c: Context, next: Next) => await authMiddlewares(c, next, "admin")
 export const userRoleAuth = async (c: Context, next: Next) => await authMiddlewares(c, next, "user")
-export const adminUserRoleAuth = async (c: Context, next: Next) => await authMiddlewares(c, next, "user && admin")
+export const adminUserRoleAuth = async (c: Context, next: Next) => await authMiddlewares(c, next, "both")

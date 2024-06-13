@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { driverService, getDriverService, createDriverService, updateDriverService, deleteDriverService } from "./driver.service";
+import { driverService, getDriverService, createDriverService, limitdriver, updateDriverService, deleteDriverService } from "./driver.service";
 
 export const listDrivers = async (c: Context) => {
     const data = await driverService();
@@ -21,6 +21,30 @@ export const getSingleDriver = async (c: Context) => {
     }
     return c.json(user, 200);
 } 
+
+export const listspecificDrivers = async (c: Context) => {
+    const limit = Number(c.req.query('limit'))
+    const data = await driverService();
+    if (data == null) {
+        return c.text("no user found!😶‍🌫️👽", 404)
+    } 
+    return c.json(data, 200);
+}
+
+//get user with limit
+export const limit=async(c: Context) =>{
+    try{
+    const limit = Number(c.req.query('limit'))
+   
+    const data = await limitdriver(limit);
+    if (data == null || data.length == 0) {
+        return c.text("Address not found", 404)
+    }
+    return c.json(data, 200);
+  }catch (error: any) {
+    return c.json({ error: error?.message }, 400)
+  }
+  }
 
 //create driver
 export const createDriver = async (c: Context) => {

@@ -31,3 +31,20 @@ export const deleteDriverService = async (id: number) => {
     await db.delete(driverTable).where(eq(driverTable.id, id))
     return "user deleted successfully!😑"
 }
+
+//
+export const specifiedDriverService = async (limit?:number):Promise<TSDriver[] | null> =>{
+    if(limit){
+ 
+        return await db.query.driverTable.findMany({
+            limit: limit
+        });
+    }
+    return await db.query.driverTable.findMany();
+ 
+}
+ 
+//limit
+export const limitdriver= async (limit: number) => {
+    return await db.select().from(driverTable).limit(limit);
+  };

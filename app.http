@@ -1,24 +1,21 @@
 
 GET http://localhost:8000/ok
 
+##----------------------------------admin authority-------------------------------------------------
 ###
 GET http://localhost:8000/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4MTk4NDUzfQ.S4HC5F6mc29pEyfEHRoP6jW__rVM5qxaSuXtS0mGud8
-
-###
-GET http://localhost:8000/userrelations/1
-
-###
-GET http://localhost:8000/states
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
 ###
 GET http://localhost:8000/relation/usercommentrelations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODI3ODc4Nn0.tOy4xwthrcwstxoX17uHaM1zFdPnaI39Mju8EXAFFCE
 
 ###
 GET http://localhost:8000/relation/useraddressrelations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODI3ODc4Nn0.tOy4xwthrcwstxoX17uHaM1zFdPnaI39Mju8EXAFFCE
 
 ###
 GET http://localhost:8000/relation/userorderrelations
+Authorization:
 
 ###
 GET http://localhost:8000/relation/orderscommentrelations
@@ -44,20 +41,40 @@ GET http://localhost:8000/relation/driverUserrelations
 ###
 GET http://localhost:8000/relation/userdriverrelations
 
-###
-GET http://localhost:8000/relation/statecityrelations/2
 
 ###
-GET http://localhost:8000/relation/singleuserdriversrelations/8
+GET http://localhost:8000/userrelations/1
+
+###
+GET http://localhost:8000/states
 
 ###
 GET http://localhost:8000/relation/Menuitemrestaurantrelations
+
+
+# -------------------------------------------------user authority----------------------------------------------------------------------------------------------
+###
+GET http://localhost:8000/relation/statecityrelations/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODI4NzYxMH0.tdI-igrKXBwW0rRGCteXD9PfWLKk6uQplFrlkJ9UC10
+###
+GET http://localhost:8000/relation/singleuserdriversrelations/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjg2NTk3fQ.U-gMFpEFMYCKqfJctXaOnP2ikZq2BhUFM_O-J5lXFNE
+###
+GET http://localhost:8000/users/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODI3ODc4Nn0.tOy4xwthrcwstxoX17uHaM1zFdPnaI39Mju8EXAFFCE
+
 
 ###
 GET http://localhost:8000/drivers
 
 ###
+GET http://localhost:8000/limitaddress?limit=1
+
+###
 GET http://localhost:8000/cities
+
+###
+GET http://localhost:8000/citiesrelations
 
 ###
 GET http://localhost:8000/address
@@ -69,8 +86,7 @@ GET http://localhost:8000/restaurants
 GET http://localhost:8000/orders
 
 ###
-GET http://localhost:8000/users/1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0b20iLCJyb2xlIjoidXNlciIsImV4cCI6MTcxODEwMzAzNX0.t--Hn7SnczA0z4Snp6EZIngUVE2ganmbHfz065LcS8A
+GET http://localhost:8000/categoryrelation
 
 
 ###
@@ -94,15 +110,15 @@ POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-    "id": "4",
-  "name": "sara",
-  "contact_phone": 267830,
+    "id": "8",
+  "name": "maximas",
+  "contact_phone": 07267830,
   "phone_verified": true,
-  "email": "sara@gmail.com",
+  "email": "max@gmail.com",
   "email_verified": true,
   "confirmation_code": null,
   "password": 234500
-  }
+}
 
 ###
 POST http://localhost:8000/orders
@@ -218,7 +234,9 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:8000/users/2
+DELETE http://localhost:8000/users/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6YXJhIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNzE4Mjc4OTQ4fQ.AtK56kIJGZWrejHSz8_wbQfyvJ8aVFj6DdcfH6-wp-g
+###
 
 ###
 DELETE http://localhost:8000/states/6
@@ -249,6 +267,6 @@ Content-Type: application/json
 
 {
    
-  "username": "zara",
-  "password": "sarahk"
+  "username": "tom",
+  "password": "3456"
 }

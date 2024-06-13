@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { stateService, getStateService, createStateService, updateStateService, deleteStateService  } from "./state.service";
+import { stateService, getStateService, createStateService, updateStateService, limitstate, deleteStateService  } from "./state.service";
 
 export const listState = async (c: Context) => {
     try{
@@ -12,6 +12,31 @@ export const listState = async (c: Context) => {
         return c.json({ error: error?.message }, 400)
     }
 }
+
+export const listspecificstates= async (c: Context) => {
+    const limit = Number(c.req.query('limit'))
+    const data = await stateService();
+    if (data == null) {
+        return c.text("no user found!😶‍🌫️👽", 404)
+    } 
+    return c.json(data, 200);
+}
+
+//get user with limit
+export const limit=async(c: Context) =>{
+    try{
+    const limit = Number(c.req.query('limit'))
+   
+    const data = await limitstate(limit);
+    if (data == null || data.length == 0) {
+        return c.text("Address not found", 404)
+    }
+    return c.json(data, 200);
+  }catch (error: any) {
+    return c.json({ error: error?.message }, 400)
+  }
+  }
+
 
 export const getSingleState = async (c: Context) => {
     const id = parseInt(c.req.param("id"));

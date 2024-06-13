@@ -9,13 +9,8 @@ export const listUsersWithcommentS = async (c: Context) => {
     } 
     return c.json(data, 200);
 }
-export const listUsersWithAddress = async (c: Context) => {
-    const data = await getUsersWithAddressService();
-    if (data == null) {
-        return c.text("no user found!😶‍🌫️👽", 404)
-    } 
-    return c.json(data, 200);
-}
+
+
 export const listUsersWithOrders = async (c: Context) => {
     const data = await getUsersWithOrdersService();
     if (data == null) {
@@ -23,6 +18,15 @@ export const listUsersWithOrders = async (c: Context) => {
     } 
     return c.json(data, 200);
 }
+
+export const listUsersWithAddress = async (c: Context) => {
+    const data = await getUsersWithAddressService();
+    if (data == null) {
+        return c.text("no user found!😶‍🌫️👽", 404)
+    } 
+    return c.json(data, 200);
+}
+
 
 export const listUsersWithdriver = async (c: Context) => {
     const data = await getDriversWithUserService();

@@ -13,6 +13,31 @@ export const getCityService = async (id: number): Promise<TICity | undefined> =>
     })
 }
 
+export const getcityWithallServices = async (): Promise<TSCity[] | null> => {
+    return await db.query.cityTable.findMany({
+      columns: {
+        name: true
+      },
+        with: {
+           state : {
+            columns: {
+              name: true
+            }
+           },
+              restaurant : {
+                columns: {
+                  name: true
+                }
+              },
+                address : {
+                    columns: {
+                    zip_code: true
+                    }
+                }
+        }
+    })
+  }
+
 //create city
 export const createCityService = async (city: TICity): Promise<TICity> => {
     await db.insert(cityTable).values(city)

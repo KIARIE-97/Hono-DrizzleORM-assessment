@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { cityService, getCityService, createCityService, updateCityService, deleteCityService } from "./city.service";
+import { cityService, getCityService, createCityService, getcityWithallServices, updateCityService, deleteCityService } from "./city.service";
 
 export const listCities = async (c: Context) => {
     const data = await cityService();
@@ -20,6 +20,14 @@ export const getSingleCity = async (c: Context) => {
         return c.text("city not found!👽", 404);
     }
     return c.json(city, 200);
+}
+
+export const listcityWithallService = async (c: Context) => {
+    const data = await getcityWithallServices();
+    if (data == null) {
+        return c.text("no user found!😶‍🌫️👽", 404)
+    } 
+    return c.json(data, 200);
 }
 
 //create city

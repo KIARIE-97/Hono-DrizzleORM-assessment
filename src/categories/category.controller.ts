@@ -1,5 +1,5 @@
 import { Context } from "hono";
-import { categoryService, getCategoryService, createCategoryService, updateCategoryService, deleteCategoryService } from "./category.service";
+import { categoryService, getCategoryService, getcategoryWithmenuitemService,  createCategoryService, updateCategoryService, deleteCategoryService } from "./category.service";
 
 export const listCategory = async (c: Context) => {
     const data = await categoryService();
@@ -20,6 +20,14 @@ export const getSingleCategory= async (c: Context) => {
         return c.text("restaurant not found!👽", 404);
     }
     return c.json(category, 200);
+}
+
+export const listcategoryWithmenuitem = async (c: Context) => {
+    const data = await getcategoryWithmenuitemService();
+    if (data == null) {
+        return c.text("no user found!😶‍🌫️👽", 404)
+    } 
+    return c.json(data, 200);
 }
 
 //create restaurant
