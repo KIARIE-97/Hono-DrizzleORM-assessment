@@ -52,6 +52,7 @@ app.get('/ok', (c) => {
         <body>
           <div class="emoji"> ✨🎆🎇🎉✨✨</div>
           <h1>This is SARAH KIARIE's API <BR> welcome <br> 👌</h1>
+          <a href="/users">Users</a>
           <p>this is server-side rendering.</p>
           <p>Explore the available data at your disposal</p>
         </body>
