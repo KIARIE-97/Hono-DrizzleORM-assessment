@@ -214,6 +214,7 @@ export type TSState = typeof stateTable.$inferSelect;
 
 export type TIStatusCatalog = typeof status_catalogTable.$inferInsert;
 export type TSStatusCatalog = typeof status_catalogTable.$inferSelect;
+export type SimpleStatusCatalog= Pick<TSStatusCatalog, 'name' >;
 
 export type TIUsers = typeof usersTable.$inferInsert;
 export type TSUsers = typeof usersTable.$inferSelect;

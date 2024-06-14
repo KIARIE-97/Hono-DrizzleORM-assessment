@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db"
-import {TIStatusCatalog, TSStatusCatalog, status_catalogTable} from "../drizzle/schema";
+import {TIStatusCatalog, TSStatusCatalog, SimpleStatusCatalog, status_catalogTable} from "../drizzle/schema";
 
 export const statusCatalogService = async (): Promise<TSStatusCatalog[] | null> => {
     return await db.query.status_catalogTable.findMany()

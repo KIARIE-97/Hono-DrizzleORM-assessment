@@ -37,9 +37,28 @@ app.get('/ok', (c) => {
 
   export default app;
   
-  // app.get('/me', (c) => {
-  //   return c.text('TECHLADS😊❤️')
-  // })
+  app.get("/", (c) => {
+    const welcomeMessage = `
+      <html>
+        <head>
+          <title>Welcome to my API</title>
+          <style>
+            body { font-family: Candara Light; background-color:hsl(323°, 96%, 52%); text-align: center; padding: 50px; }
+            h1 { color: black; }
+            p { color: #22024d; }
+            .emoji { font-size: 2em; }
+          </style>
+        </head>
+        <body>
+          <div class="emoji"> ✨🎆🎇🎉✨✨</div>
+          <h1>This is SARAH KIARIE's API <BR> welcome <br> 👌</h1>
+          <p>this is server-side rendering.</p>
+          <p>Explore the available data at your disposal</p>
+        </body>
+      </html>
+    `;
+    return c.html(welcomeMessage);
+  });
   
   app.notFound((c) => {
     return c.text('route not found!😶‍🌫️👽')
