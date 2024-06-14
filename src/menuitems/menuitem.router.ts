@@ -7,8 +7,8 @@ import { get } from "http";
 
 export const menuItemRouter = new Hono();
 
-menuItemRouter.get("/restaurants", listMenu)
-menuItemRouter.get("/restaurants/:id", getSinglemenuItem)
-menuItemRouter.post("/restaurants", createmenuItem)
-menuItemRouter.put("/restaurants/:id", updatemenuItem)
-menuItemRouter.delete("/restaurants/:id", deletemenuItem)
+menuItemRouter.get("/menuItem", listMenu)
+menuItemRouter.get("/menuItem/:id", getSinglemenuItem)
+menuItemRouter.post("/menuItem", createmenuItem)
+menuItemRouter.put("/menuItem/:id", updatemenuItem)
+menuItemRouter.delete("/menuItem/:id", deletemenuItem)

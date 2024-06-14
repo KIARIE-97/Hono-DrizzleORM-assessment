@@ -39,24 +39,51 @@ app.get('/ok', (c) => {
   
   app.get("/", (c) => {
     const welcomeMessage = `
-      <html>
-        <head>
-          <title>Welcome to my API</title>
-          <style>
-            body { font-family: Candara Light; background-color:hsl(323°, 96%, 52%); text-align: center; padding: 50px; }
-            h1 { color: black; }
-            p { color: #22024d; }
-            .emoji { font-size: 2em; }
-          </style>
-        </head>
-        <body>
-          <div class="emoji"> ✨🎆🎇🎉✨✨</div>
-          <h1>This is SARAH KIARIE's API <BR> welcome <br> 👌</h1>
-          <a href="/users">Users</a>
-          <p>this is server-side rendering.</p>
-          <p>Explore the available data at your disposal</p>
-        </body>
-      </html>
+  <html>
+    <head>
+      <title>Welcome to my API</title>
+      <style>
+        body { font-family: Candara Light; background-color:hsl(323°, 96%, 52%); text-align: center; padding: 50px; }
+        h1 { color: rgb(65, 63, 63); }
+        p { color: #22024d; }
+        
+        .list { display: flex ;
+                flex-direction: column;   }
+        .link { padding: 20px;
+                background-color: hsl(180, 80%, 77%, 0.5);        
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 50%;
+                margin-left: 25%;
+                border-radius: 10px;
+            }
+        .link a{ text-decoration: none;
+                color: black;
+                font-size: 1.5em;
+                font-weight: bold;}            
+      </style>
+    </head>
+    <body>
+      
+      <h1>SARAH KIARIE's site for efficient restaurant services API. <BR> welcome👌</h1>
+        <div class="list"></div>
+        <p>this is server-side rendering.</p>
+        <p>Here are the available endpoints:</p>
+      <div class="link"> <a href="/users">Users</a> </div>
+      <div class="link"> <a href="/state">States</a> </div>
+      <div class="link"> <a href="/restaurants">restaurants</a> </div>
+      <div class="link"> <a href="/orders">orders</a> </div>
+      <div class="link"> <a href="/menuItem">menuItem</a> </div>
+      <div class="link"> <a href="/drivers">drivers</a> </div>
+      <div class="link"> <a href="/cities">cities</a> </div>
+      <div class="link"> <a href="/category">category</a> </div>
+        <div class="link"> <a href="/address">address</a> </div>
+        <div class="link"> <a href="/orderStatus">category</a> </div>
+    </div>
+        <p>Feel free to explore the available data</p>
+
+    </body>
+  </html>
     `;
     return c.html(welcomeMessage);
   });
