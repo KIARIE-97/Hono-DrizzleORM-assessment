@@ -60,7 +60,17 @@ app.get('/ok', (c) => {
         .link a{ text-decoration: none;
                 color: black;
                 font-size: 1.5em;
-                font-weight: bold;}            
+                font-weight: bold;} 
+        .button { 
+                          margin-top: 20px;
+                        margin-bottom: 20px;
+                        background-color: hsla(305, 51%, 45%, 0.5);
+                        padding: 20px;
+                        border-radius: 10px;
+                        /* width: 50%; */
+                        /* margin-left: 25%; */
+                        } 
+        .service-links { display: none; }                      
       </style>
     </head>
     <body>
@@ -69,19 +79,32 @@ app.get('/ok', (c) => {
         <div class="list"></div>
         <p>this is server-side rendering.</p>
         <p>Here are the available endpoints:</p>
-      <div class="link"> <a href="/users">Users</a> </div>
-      <div class="link"> <a href="/state">States</a> </div>
-      <div class="link"> <a href="/restaurants">restaurants</a> </div>
-      <div class="link"> <a href="/orders">orders</a> </div>
-      <div class="link"> <a href="/menuItem">menuItem</a> </div>
-      <div class="link"> <a href="/drivers">drivers</a> </div>
-      <div class="link"> <a href="/cities">cities</a> </div>
-      <div class="link"> <a href="/category">category</a> </div>
-        <div class="link"> <a href="/address">address</a> </div>
-        <div class="link"> <a href="/orderStatus">category</a> </div>
+       <div class="service-links">
+        <div class="link"><a href="/users">Users</a></div>
+        <div class="link"><a href="/state">States</a></div>
+        <div class="link"><a href="/restaurants">restaurants</a></div>
+        <div class="link"><a href="/orders">orders</a></div>
+        <div class="link"><a href="/menuItem">menuItem</a></div>
+        <div class="link"><a href="/drivers">drivers</a></div>
+        <div class="link"><a href="/cities">cities</a></div>
+        <div class="link"><a href="/category">category</a></div>
+        <div class="link"><a href="/address">address</a></div>
+        <div class="link"><a href="/orderStatus">orderStatus</a></div>
     </div>
-        <p>Feel free to explore the available data</p>
+  <button class="button" onclick="toggleLinks()">Service Links</button>
+        <p>© 2024 Sarah. All rights reserved</p>
+        <p>Thank you for visiting</p>
 
+        <script>
+        function toggleLinks() {
+            var linksDiv = document.querySelector('.service-links');
+            if (linksDiv.style.display === 'none' || linksDiv.style.display === '') {
+                linksDiv.style.display = 'block';
+            } else {
+                linksDiv.style.display = 'none';
+            }
+        }
+    </script>
     </body>
   </html>
     `;
