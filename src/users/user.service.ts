@@ -1,9 +1,15 @@
 import { eq } from "drizzle-orm";
 import db from "../drizzle/db"
-import {TIUsers, TSUsers, usersTable} from "../drizzle/schema";
+import {TIUsers, TSUsers, simpleUsers, usersTable} from "../drizzle/schema";
 
-export const userService = async (): Promise<TSUsers[] | null> => {
-    return await db.query.usersTable.findMany()
+export const userService = async (): Promise<simpleUsers[] | null> => {
+    return await db.query.usersTable.findMany({
+        columns: {
+            name: true,
+            contact_phone: true,
+            email: true,
+        }
+    })
 }
 
 //get one user

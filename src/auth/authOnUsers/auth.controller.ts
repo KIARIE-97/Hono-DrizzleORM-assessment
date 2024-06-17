@@ -4,7 +4,8 @@ import bcrypt from 'bcrypt';
 import { sign } from 'hono/jwt';
 import "dotenv/config"
 import mailFunction from '../../email_functionality/email';
-// import purpleglass from '../../email_functionality/purple glass.jpg';
+// import purpleGlass from './purple glass.jpg';
+
 
 
 export const registerUser = async (c: Context) => {
@@ -54,7 +55,7 @@ if (!user.email) {
         <p>Thank you for choosing to be part of us✨</p>
         <p>your best restaurant API companion</p>
 
-        // <img src="purpleglass" alt="Image" style="max-width: 100%; height: auto;">
+        // <img src="https://wallpapercave.com/wp/wp12956321.jpg" alt="Image" style="max-width: 100%; height: auto;">
         <a class="btn" href="https://myrestaurant.azurewebsites.net/">visit us</a>
       </div>
     </body>
