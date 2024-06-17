@@ -8,10 +8,18 @@ import { sql } from "drizzle-orm";
 //     return"user created successfully"
 // }
 
-export const createAuthUserService = async (user: TIAuthOnUser): Promise<string | null> => {
+export const createAuthUserService = async (user: any) => {
     try {
       // Insert user into `users` table
-      const createdUser = await db.insert(usersTable).values({}).returning();
+      const createdUser = await db.insert(usersTable).values({
+        name: user.name,
+        contact_phone: user.contact_phone,
+        phone_verified: false,
+        email: user.email,
+        email_verified: false,
+        confirmation_code: user.confirmation_code,
+        password: user.password
+      }).returning();
   
       // Extract the created user ID
       const userId = createdUser[0].id;

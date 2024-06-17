@@ -42,9 +42,19 @@ export const registerUserSchema = z.object({
   userId: z.number(),
   username: z.string(),
   name: z.string(),
-  email: z.string(),
-  contact_phone: z.number(),
-  password: z.number(),
+  contact_phone: z.string(),
+  phone_verified: z.boolean(),
+  email: z.string().email(),
+  email_verified: z.boolean(),
   confirmation_code: z.string(),
+  password: z.string(),
   role: z.string().optional()
 });
+
+// name: user.name,
+//         contact_phone: user.contact_phone,
+//         phone_verified: false,
+//         email: user.email,
+//         email_verified: false,
+//         confirmation_code: user.confirmation_code,
+//         password: user.password

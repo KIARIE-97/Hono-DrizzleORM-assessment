@@ -132,12 +132,12 @@ export const categoryTable = pgTable('category', {
   export const usersTable = pgTable('users', {
     id: serial("id").primaryKey(),
     name: text("name"),
-    contact_phone: text("contact_phone"),
+    contact_phone: integer("contact_phone"),
     phone_verified: boolean("phone_verified"),
     email: text("email"),
     email_verified: boolean("email_verified"),
     confirmation_code: text("confirmation_code"),
-    password: text("password"),
+    password: varchar("password")
     // created_at: date("created_at"),
     // updated_at: date("updated_at"),
   });
@@ -156,7 +156,7 @@ export const categoryTable = pgTable('category', {
   export const AuthOnUsersTable = pgTable("auth_on_users", {
     id: serial("id").primaryKey(),
     userId: integer("user_id").notNull().references(() => usersTable.id, { onDelete: "cascade" }),
-    password: varchar("password", { length: 100 }).notNull().references(() => usersTable.password, { onDelete: "cascade" }),
+    password: varchar("password", { length: 100 }),
     username: varchar("username", { length: 100 }),
     role: roleEnum("role").default("user")
 });

@@ -269,12 +269,15 @@ POST  http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
+  "userId": 6,
   "username": "tony",
   "name": "antony",
+  "contact_phone": "0978678",
+  "phone_verified": false,
   "email": "sarahwanjiruki1@gmail.com",
-  "contact_phone": 0978678,
-  "password": 1500,
+  "email_verified": false,
   "confirmation_code": "shty",
+  "password": "1500",
   "role": "user"
 }
 
