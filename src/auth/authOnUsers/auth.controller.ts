@@ -3,7 +3,8 @@ import { createAuthUserService, userLoginService } from './auth.service';
 import bcrypt from 'bcrypt';
 import { sign } from 'hono/jwt';
 import "dotenv/config"
-
+import mailFunction from '../../email_functionality/email';
+// import purpleglass from '../../email_functionality/purple glass.jpg';
 
 
 export const registerUser = async (c: Context) => {
@@ -14,12 +15,65 @@ export const registerUser = async (c: Context) => {
         user.password = hashedPassword;
         const createdUser = await createAuthUserService(user);
 if (!createdUser) return c.text("User not created", 404);
-return c.json({ msg: createdUser }, 201);
- 
-} catch (error: any) {
+
+// send email to user
+if (!user.email) {
+    throw new Error("Email field is missing in the user data");
+  }
+
+  // Send welcome email after successful user creation
+  const subject = "hello, welcome to my restaurant API";
+  const html = `
+  <html>
+    <head>
+      <style>
+        /* Inline CSS for basic styling */
+        .email-container {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+          padding: 20px;
+          border-radius: 5px;
+        }
+        .btn {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 3px;
+          transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+          background-color: #0056b3;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="email-container">
+        <p>Hello, ${user.username}</p>
+        <p>Thank you for choosing to be part of us✨</p>
+        <p>your best restaurant API companion</p>
+
+        // <img src="purpleglass" alt="Image" style="max-width: 100%; height: auto;">
+        <a class="btn" href="https://myrestaurant.azurewebsites.net/">visit us</a>
+      </div>
+    </body>
+  </html>
+`;
+
+
+     // Send welcome email after successful user creation
+     await mailFunction(user.email, subject, html);
+
+     return c.json({ msg: "User registered successfully", user: createdUser }, 201);
+ } catch (error: any) {
+     console.error('Error during registration:', error);
+
         return c.json({ error: error?.message }, 400)
     }
 }
+
+
 
 export const loginUser = async (c: Context) => {
 

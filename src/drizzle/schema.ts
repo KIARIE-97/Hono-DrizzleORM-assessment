@@ -131,13 +131,13 @@ export const categoryTable = pgTable('category', {
   // Define the users table
   export const usersTable = pgTable('users', {
     id: serial("id").primaryKey(),
-    name: varchar("name"),
-    contact_phone: varchar("contact_phone"),
+    name: text("name"),
+    contact_phone: text("contact_phone"),
     phone_verified: boolean("phone_verified"),
-    email: varchar("email"),
+    email: text("email"),
     email_verified: boolean("email_verified"),
-    confirmation_code: varchar("confirmation_code"),
-    password: varchar("password"),
+    confirmation_code: text("confirmation_code"),
+    password: text("password"),
     // created_at: date("created_at"),
     // updated_at: date("updated_at"),
   });

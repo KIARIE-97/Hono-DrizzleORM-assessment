@@ -269,10 +269,13 @@ POST  http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
-   "userId": 5,
-  "username": "sara",
-  "password": "3797",
-  "role": "admin"
+  "username": "tony",
+  "name": "antony",
+  "email": "sarahwanjiruki1@gmail.com",
+  "contact_phone": 0978678,
+  "password": 1500,
+  "confirmation_code": "shty",
+  "role": "user"
 }
 
 ###

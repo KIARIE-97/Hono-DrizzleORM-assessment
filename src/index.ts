@@ -1,6 +1,9 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import "dotenv/config"
+import { readFileSync } from 'fs';
+// import mailFunction from './email_functionality/email';
+
 // import db from "./drizzle/db";
 import { usersTable, commentTable, categoryTable } from "./drizzle/schema";
 
@@ -28,8 +31,10 @@ import{ stateRelationRouter } from './relations/stateRelations/staterelations.ro
 import{ authRouter } from './auth/authOnUsers/auth.router'
 
 
+
 const app = new Hono()
 
+// mailFunction();
 
 app.get('/ok', (c) => {
     return c.text('Hello Hono!')
@@ -37,79 +42,18 @@ app.get('/ok', (c) => {
 
   export default app;
   
-  app.get("/", (c) => {
-    const welcomeMessage = `
-  <html>
-    <head>
-      <title>Welcome to my API</title>
-      <style>
-        body { font-family: Candara Light; background-color:hsl(323°, 96%, 52%); text-align: center; padding: 50px; }
-        h1 { color: rgb(65, 63, 63); }
-        p { color: #22024d; }
-        
-        .list { display: flex ;
-                flex-direction: column;   }
-        .link { padding: 20px;
-                background-color: hsl(180, 80%, 77%, 0.5);        
-                margin-top: 10px;
-                margin-bottom: 10px;
-                width: 50%;
-                margin-left: 25%;
-                border-radius: 10px;
-            }
-        .link a{ text-decoration: none;
-                color: black;
-                font-size: 1.5em;
-                font-weight: bold;} 
-        .button { 
-                          margin-top: 20px;
-                        margin-bottom: 20px;
-                        background-color: hsla(305, 51%, 45%, 0.5);
-                        padding: 20px;
-                        border-radius: 10px;
-                        /* width: 50%; */
-                        /* margin-left: 25%; */
-                        } 
-        .service-links { display: none; }                      
-      </style>
-    </head>
-    <body>
-      
-      <h1>SARAH KIARIE's site for efficient restaurant services API. <BR> welcome👌</h1>
-        <div class="list"></div>
-        <p>this is server-side rendering.</p>
-        <p>Here are the available endpoints:</p>
-       <div class="service-links">
-        <div class="link"><a href="/users">Users</a></div>
-        <div class="link"><a href="/state">States</a></div>
-        <div class="link"><a href="/restaurants">restaurants</a></div>
-        <div class="link"><a href="/orders">orders</a></div>
-        <div class="link"><a href="/menuItem">menuItem</a></div>
-        <div class="link"><a href="/drivers">drivers</a></div>
-        <div class="link"><a href="/cities">cities</a></div>
-        <div class="link"><a href="/category">category</a></div>
-        <div class="link"><a href="/address">address</a></div>
-        <div class="link"><a href="/orderStatus">orderStatus</a></div>
-    </div>
-  <button class="button" onclick="toggleLinks()">Service Links</button>
-        <p>© 2024 Sarah. All rights reserved</p>
-        <p>Thank you for visiting</p>
 
-        <script>
-        function toggleLinks() {
-            var linksDiv = document.querySelector('.service-links');
-            if (linksDiv.style.display === 'none' || linksDiv.style.display === '') {
-                linksDiv.style.display = 'block';
-            } else {
-                linksDiv.style.display = 'none';
-            }
-        }
-    </script>
-    </body>
-  </html>
-    `;
-    return c.html(welcomeMessage);
-  });
+
+app.get('/', async (c) => {
+  try {
+    let html = readFileSync('./index.html', 'utf-8');
+    return c.html(html);
+
+  } catch (error: any) {
+    return c.json({ error: error.message, status: 500 });
+
+  }
+});
   
   app.notFound((c) => {
     return c.text('route not found!😶‍🌫️👽')

@@ -8,7 +8,7 @@ import {adminRoleAuth, userRoleAuth, adminUserRoleAuth} from "../middlewares/bea
 
 export const userRouter = new Hono();
 
-userRouter.get("/users", adminRoleAuth, listUsers)
+userRouter.get("/users",listUsers)
 userRouter.get("/users/:id", userRoleAuth, getSingleUser)
 userRouter.post("/users", zValidator('json', userSchema, (results, c) => {
     if (!results.success){

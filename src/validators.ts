@@ -41,6 +41,10 @@ export const loginUserSchema = z.object({
 export const registerUserSchema = z.object({
   userId: z.number(),
   username: z.string(),
-  password: z.string(),
-  role: z.string().optional(),
-})
+  name: z.string(),
+  email: z.string(),
+  contact_phone: z.number(),
+  password: z.number(),
+  confirmation_code: z.string(),
+  role: z.string().optional()
+});

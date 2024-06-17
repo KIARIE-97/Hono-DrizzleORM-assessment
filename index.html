@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Welcome to my API</title>
+      <style>
+        body { font-family: Candara Light; background-color:hsl(323°, 96%, 52%); text-align: center; padding: 50px; }
+        h1 { color: rgb(65, 63, 63); }
+        p { color: #22024d; }
+        .header_content{
+            background-color: hsla(295, 43%, 48%, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .list { display: flex ;
+                flex-direction: column;   }
+        .link { padding: 20px;
+                background-color: hsl(180, 80%, 77%, 0.5);        
+                margin-top: 10px;
+                margin-bottom: 10px;
+                width: 50%;
+                margin-left: 25%;
+                border-radius: 10px;
+            }
+        .link a{ text-decoration: none;
+                color: black;
+                font-size: 1.5em;
+                font-weight: bold;} 
+        .button { 
+                          margin-top: 20px;
+                        margin-bottom: 20px;
+                        background-color: hsla(305, 51%, 45%, 0.5);
+                        padding: 20px;
+                        border-radius: 10px;
+                        /* width: 50%; */
+                        /* margin-left: 25%; */
+                        } 
+        .service-links { display: none; } 
+        .link-description {
+            margin-left: 20px;
+            font-style: italic;
+        }                 
+      </style>
+    </head>
+    <body>
+      <div class="header_content">
+      <h1>REST restaurants API services by SERAH KIARIE. <BR> welcome👌</h1>
+        <p>this is server-side rendering.</p>
+      </div>
+
+        <div class="message">
+        <p>To get started, please <a href="/register">register here</a>. Below are the links to different resources and their descriptions:</p>
+      </div>
+        <div class="service-links">
+          <div class="link">
+            <a href="/users">Users</a>
+            <div class="link-description">Manage user accounts and details.</div>
+        </div>
+        <div class="link">
+            <a href="/state">States</a>
+            <div class="link-description">View and manage the states where we operate.</div>
+        </div>
+        <div class="link">
+            <a href="/restaurants">Restaurants</a>
+            <div class="link-description">Access information about our partner restaurants.</div>
+        </div>
+        <div class="link">
+            <a href="/orders">Orders</a>
+            <div class="link-description">Track and manage customer orders.</div>
+        </div>
+        <div class="link">
+            <a href="/menuItem">Menu Items</a>
+            <div class="link-description">Browse and manage menu items available at the restaurants.</div>
+        </div>
+        <div class="link">
+            <a href="/drivers">Drivers</a>
+            <div class="link-description">Manage driver information and assignments.</div>
+        </div>
+        <div class="link">
+            <a href="/cities">Cities</a>
+            <div class="link-description">View and manage the cities we serve.</div>
+        </div>
+        <div class="link">
+            <a href="/category">Category</a>
+            <div class="link-description">Manage categories for menu items.</div>
+        </div>
+        <div class="link">
+            <a href="/address">Address</a>
+            <div class="link-description">Manage user and restaurant addresses.</div>
+        </div>
+        <div class="link">
+            <a href="/orderStatus">Order Status</a>
+            <div class="link-description">Check the status of orders.</div>
+        </div>
+
+        </div>
+    
+        <button class="button" onclick="toggleLinks()">Service Links</button>
+        <p>Feel free to explore the available data</p>
+        <p>Thank you for visiting</p>
+        <br>
+        <p>© 2024 Sarah. All rights reserved</p>
+        <script>
+            function toggleLinks() {
+                var linksDiv = document.querySelector('.service-links');
+                if (linksDiv.style.display === 'none' || linksDiv.style.display === '') {
+                    linksDiv.style.display = 'block';
+                } else {
+                    linksDiv.style.display = 'none';
+                }
+            }
+        </script>
+
+
+    </body>
+  </html>
